@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import './scss/App.scss';
+import  Todos  from './components/todos';
+import { fetchTodos } from './redux/slices/todoSlice';
+import { useAppDispatch } from './utils/hooks';
 
 function App() {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    // Dispatch the fetchTodos async action when the component mounts
+    dispatch(fetchTodos());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+
+      <h1 className='main-heading'>Todo App</h1>     
+      <Todos/>
+    </main>
   );
 }
 

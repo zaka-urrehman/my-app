@@ -1,0 +1,252 @@
+// .App {
+//   text-align: center;
+// }
+
+// .App-logo {
+//   height: 40vmin;
+//   pointer-events: none;
+// }
+
+// @media (prefers-reduced-motion: no-preference) {
+//   .App-logo {
+//     animation: App-logo-spin infinite 20s linear;
+//   }
+// }
+
+// .App-header {
+//   background-color: #282c34;
+//   min-height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   font-size: calc(10px + 2vmin);
+//   color: white;
+// }
+
+// .App-link {
+//   color: #61dafb;
+// }
+
+// @keyframes App-logo-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(360deg);
+//   }
+// }
+
+body {
+  background: linear-gradient(
+    190deg,
+    rgb(134, 123, 205) 0%,
+    rgb(106, 90, 171) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #222;
+  // overflow: hidden;
+}
+main{
+  max-width: 1660px;
+  margin: 0 auto;
+}
+
+.main-heading{
+  font-size: xx-large;
+  color: white;
+  text-align: center;
+}
+
+.todo-input {
+  display:flex;  
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  margin: 4px;
+  // @media (max-width: 440px) {
+  //   /* Adjust font size for screens up to 440px wide (typical mobile screens) */
+  //  flex-direction: column;
+  // }
+   input {
+    width: 500px;
+    height: 40px;
+    border-radius: 10px;
+    outline: none;
+    border:none;
+    padding: 4px 8px;
+    margin: 0 20px ;
+    font-size: larger;
+    color: rgb(148, 147, 147);
+    
+  }
+
+  button {
+    // margin-left: 1rem;
+    background-color: #271c6c;
+    color: #e1ebfd;
+    border-radius: 50%;
+    border: 2px solid #e1ebfd;
+    font-size: 1.5rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px #271c6c;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    &:active {
+      transform: scale(0.85);
+      // Add any additional focus styles if needed
+    }
+  }
+}
+
+.todolist-container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); // 4 columns
+  gap: 16px; 
+  margin: 25px 10px;
+ 
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: rgb(180, 182, 218);
+  // position: relative;
+  background: radial-gradient(
+    circle,
+    hsla(237, 34%, 78%, 0.9) 0%,
+    hsla(219, 88%, 94%, 0.9) 100%
+  );
+  margin: auto;
+  height: auto;
+  width: auto;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  // position: relative;
+
+  p {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    // background-color: #e1ebfd;
+  
+    color: #271c6c;
+    height: 70%;
+    
+  } 
+  .completed {
+    text-decoration: line-through;    
+    background-color: rgb(52, 185, 52);  
+  }
+  
+  .btn-container {
+           display: flex; 
+           justify-content: end;
+          //  background: transparent;
+           button{
+            height: 40px;
+            width: 40px;
+            border: none;
+            cursor: pointer;
+
+           }
+  }
+}
+
+.modal-wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  opacity: 80%;
+  position: fixed;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right:0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .todo-modal{    
+    background: white;
+    height: 200px;
+    width: 400px;
+    padding: 10px;
+    margin: 0 4px 0 4px;
+    // position: absolute;
+    outline: 2px solid rgb(255, 0, 204);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    textarea{
+      width: 100%;
+      background: #ffffff;
+      color: black;
+      padding: 4px 2px;
+      font-size: large;
+    }
+    button{
+      background: rgb(98, 109, 234);
+      color: white;
+      width: 100px;
+      height: 40px;
+      border-radius: 10px;
+    }
+  }
+
+}
+
+
+
+
+
+
+@media (max-width: 1260px) {
+  /* Adjust font size for screens up to 1260px wide (typical tablet screens) */
+  .todolist-container{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  /* Adjust font size for screens up to 760px wide (typical tablet screens) */
+  .todolist-container{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 460px) {
+  /* Adjust font size for screens up to 460px wide (typical mobile screens) */
+  .todo-input input {
+    font-size: medium;
+  }
+  .todo-input button{
+    width: 3rem;
+    height: 3rem;
+  }
+  .todolist-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .card{
+    width: 15rem;
+  }
+  .main-heading{
+    font-size: x-large;
+  }
+  .todo-modal{
+    width: 250px;
+  }
+}
