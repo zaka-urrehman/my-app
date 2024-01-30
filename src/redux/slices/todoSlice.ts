@@ -17,7 +17,7 @@ export const fetchTodos = createAsyncThunk('todos/fetchTodos', async (_, { dispa
       const querySnapshot = await getDocs(todosCollection);
   
       const todos: Todo[] = [];
-      querySnapshot.forEach((doc) => {
+      querySnapshot.forEach((doc:any) => {
         const data = doc.data() as Todo; // Type cast the data to Todo
         todos.push({ ...data, id: doc.id });
       });
